@@ -21,8 +21,8 @@ void PluginRunner::run()
     }
 }
 
-
-int main(int argc, char **argv) {
+int main(int /*argc*/, char ** /*argv*/)
+{
     PluginRunner plugin_runner;
     plugin_runner.add(new PluginWrapper("plugin.custom_plugin", "CustomPlugin"));
     plugin_runner.run();
