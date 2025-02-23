@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.12)
 project(classes)
 
 find_package(catkin REQUIRED COMPONENTS
@@ -9,8 +9,7 @@ catkin_package(
     CATKIN_DEPENDS pybind11_catkin
 )
 
-include_directories(${PROJECT_SOURCE_DIR}/include
-                    ${catkin_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 
 pybind_add_module(dog MODULE src/dog.cpp src/cat.cpp)

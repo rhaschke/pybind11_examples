@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.12)
 project(cpp_object_attr)
-
-find_package(PythonLibs REQUIRED)
 
 find_package(catkin REQUIRED COMPONENTS
     pybind11_catkin)
@@ -13,12 +11,10 @@ catkin_package(
     CATKIN_DEPENDS pybind11_catkin
 )
 
-include_directories(${PYTHON_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
-
 pybind_add_module(cpp_object MODULE src/cpp_object.cpp)
-pybind_add_module(example SHARED src/example.cpp )
+pybind_add_module(example SHARED src/example.cpp)
 add_executable(main src/main.cpp)
-target_link_libraries(main ${PYTHON_LIBRARIES} example)
+target_link_libraries(main example pybind11::embed)
 
 install(TARGETS main
                 cpp_object

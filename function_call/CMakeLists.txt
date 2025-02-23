@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.12)
 project(function_call)
 
 find_package(catkin REQUIRED COMPONENTS
@@ -8,8 +8,6 @@ catkin_package(
     LIBRARIES
     CATKIN_DEPENDS pybind11_catkin
 )
-
-include_directories(${catkin_INCLUDE_DIRS})
 
 pybind_add_module(logger MODULE src/logger.cpp)
 
